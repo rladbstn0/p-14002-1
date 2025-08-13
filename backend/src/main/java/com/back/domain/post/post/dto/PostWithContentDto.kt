@@ -5,7 +5,7 @@ import lombok.Getter
 import java.time.LocalDateTime
 
 @Getter
-data class PostWithContentDto private constructor(
+data class PostWithContentDto(
     val id: Int,
     val createDate: LocalDateTime,
     val modifyDate: LocalDateTime,
