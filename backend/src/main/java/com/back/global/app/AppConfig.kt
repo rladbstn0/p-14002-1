@@ -17,10 +17,9 @@ class AppConfig(
         Companion.environment = environment
         Ut.json.objectMapper = objectMapper
     }
+
     @Bean
-    fun passwordEncoder(): PasswordEncoder {
-        return BCryptPasswordEncoder()
-    }
+    fun passwordEncoder(): PasswordEncoder = BCryptPasswordEncoder()
 
     companion object {
         private lateinit var environment: Environment
@@ -31,7 +30,7 @@ class AppConfig(
 
         @JvmStatic
         val isTest: Boolean
-            get() = !environment.matchesProfiles("test")
+            get() = environment.matchesProfiles("test")
 
         @JvmStatic
         val isProd: Boolean
@@ -40,6 +39,5 @@ class AppConfig(
         @JvmStatic
         val isNotProd: Boolean
             get() = !isProd
-
     }
 }

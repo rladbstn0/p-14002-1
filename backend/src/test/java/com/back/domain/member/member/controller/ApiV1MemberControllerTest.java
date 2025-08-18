@@ -58,8 +58,8 @@ public class ApiV1MemberControllerTest {
                 .andExpect(jsonPath("$.msg").value("%s님 환영합니다. 회원가입이 완료되었습니다.".formatted(member.getName())))
                 .andExpect(jsonPath("$.data").exists())
                 .andExpect(jsonPath("$.data.id").value(member.getId()))
-                .andExpect(jsonPath("$.data.createDate").value(Matchers.startsWith(member.getCreateDate().toString().substring(0, 20))))
-                .andExpect(jsonPath("$.data.modifyDate").value(Matchers.startsWith(member.getModifyDate().toString().substring(0, 20))))
+                .andExpect(jsonPath("$.data.createDate").value(Matchers.startsWith(member.createDate.toString().substring(0, 20))))
+                .andExpect(jsonPath("$.data.modifyDate").value(Matchers.startsWith(member.modifyDate.toString().substring(0, 20))))
                 .andExpect(jsonPath("$.data.name").value(member.getName()))
                 .andExpect(jsonPath("$.data.isAdmin").value(member.isAdmin()));
     }
@@ -91,8 +91,8 @@ public class ApiV1MemberControllerTest {
                 .andExpect(jsonPath("$.data").exists())
                 .andExpect(jsonPath("$.data.item").exists())
                 .andExpect(jsonPath("$.data.item.id").value(member.getId()))
-                .andExpect(jsonPath("$.data.item.createDate").value(Matchers.startsWith(member.getCreateDate().toString().substring(0, 20))))
-                .andExpect(jsonPath("$.data.item.modifyDate").value(Matchers.startsWith(member.getModifyDate().toString().substring(0, 20))))
+                .andExpect(jsonPath("$.data.item.createDate").value(Matchers.startsWith(member.createDate.toString().substring(0, 20))))
+                .andExpect(jsonPath("$.data.item.modifyDate").value(Matchers.startsWith(member.modifyDate.toString().substring(0, 20))))
                 .andExpect(jsonPath("$.data.item.name").value(member.getName()))
                 .andExpect(jsonPath("$.data.item.isAdmin").value(member.isAdmin()))
                 .andExpect(jsonPath("$.data.apiKey").value(member.getApiKey()))
@@ -131,8 +131,8 @@ public class ApiV1MemberControllerTest {
                 .andExpect(handler().methodName("me"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(member.getId()))
-                .andExpect(jsonPath("$.createDate").value(Matchers.startsWith(member.getCreateDate().toString().substring(0, 20))))
-                .andExpect(jsonPath("$.modifyDate").value(Matchers.startsWith(member.getModifyDate().toString().substring(0, 20))))
+                .andExpect(jsonPath("$.createDate").value(Matchers.startsWith(member.createDate.toString().substring(0, 20))))
+                .andExpect(jsonPath("$.modifyDate").value(Matchers.startsWith(member.modifyDate.toString().substring(0, 20))))
                 .andExpect(jsonPath("$.name").value(member.getName()))
                 .andExpect(jsonPath("$.username").value(member.getUsername()))
                 .andExpect(jsonPath("$.isAdmin").value(member.isAdmin()));

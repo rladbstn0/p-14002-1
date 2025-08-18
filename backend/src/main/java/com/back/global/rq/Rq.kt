@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component
 class Rq(
     private val req: HttpServletRequest,
     private val resp: HttpServletResponse,
-    private val memberService: MemberService,
+    private val memberService: MemberService
 ) {
     val actor: Member
         get() = SecurityContextHolder

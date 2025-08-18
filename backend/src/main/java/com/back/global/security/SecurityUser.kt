@@ -12,7 +12,5 @@ class SecurityUser(
     authorities: Collection<GrantedAuthority>
 ) : User(username, password, authorities), OAuth2User {
     override fun getAttributes(): Map<String, Any> = emptyMap()
-
-    override fun getName(): String? = username
-
+    override fun getName(): String = username
 }
